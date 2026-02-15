@@ -60,12 +60,8 @@ function MatchSection() {
                     alt={matchInfo?.team2?.teamSName} /> 
                 </div>
                 <p className='text-md md:text-lg font-medium m-1'>{matchInfo?.team2?.teamName}</p>
-                <p className='mx-2 text-xs md:text-sm dark:text-slate-300 text-slate-600'>
-                  {
-                    Array.isArray(match) && match.length > 1 ?
-                    <span>{team2Score?.runs}/{team2Score?.wickets} ({team2Score?.overs} ov)</span> :
-                    <span>yet to bat</span>
-                  }
+                <p className='mx-2 text-xs md:text-sm dark:text-slate-300 text-slate-600'>                 
+                  <span>{team2Score?.runs || "-"}/{team2Score?.wickets} ({team2Score?.overs } ov)</span>                   
                 </p> 
               </div>
           </div>
