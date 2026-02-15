@@ -12,4 +12,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/ICTCricinfo.02/",
 })
