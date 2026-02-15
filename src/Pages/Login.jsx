@@ -1,5 +1,6 @@
 import { Lock, Mail } from 'lucide-react'
 import React from 'react'
+import { Link } from 'react-router'
 
 function Login() {
 
@@ -51,7 +52,9 @@ function Login() {
          <p className="text-center dark:text-gray-200 text-gray-700/90  mb-8 text-sm">
           Don’t have an account?{" "}
           <span className="dark:text-white font-semibold cursor-pointer hover:underline">
-            Sign Up
+            <Link to="/SginIn">
+              sign Up
+            </Link>
           </span>
         </p>
        </div>

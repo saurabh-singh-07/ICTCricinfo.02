@@ -4,6 +4,7 @@ import ScorecardImage from '@/assets/Scorecard-img.png'
 import playerProfileImage from '@/assets/playerProfile.png'
 import { Link, Outlet } from 'react-router'
 import { Radio, Users } from 'lucide-react'
+import { HashLink } from 'react-router-hash-link'
 function FrontPage() {
   const cardRef = useRef([]);
   const scoreCardRef = useRef(null)
@@ -50,8 +51,20 @@ function FrontPage() {
             </p>
           </div>
           <div className='text-white font-bold text-3xl mt-30 md:mt-50 text-center md:space-x-20'>
-            <button className='bg-amber-600 rounded-2xl px-10 hover:scale-105my-5 hover:shadow-[0px_0px_16px_-1px_rgba(0,0,0,0.25)] transition-all duration-200 shadow-amber-600 py-4'> <a href="#Live-matches">Live Matches</a></button>
-            <button className='bg-slate-200 text-slate-700 rounded-2xl px-10 my-5 border border-slate-300 hover:scale-105 hover:shadow-[0px_0px_16px_-1px_rgba(0,0,0,0.35)] shadow-stone-100 transition-all duration-200 py-4'> <a href="#player-stats">Player Stats</a></button>
+            <button 
+            className='bg-amber-600 rounded-2xl px-10 hover:scale-105my-5 hover:shadow-[0px_0px_16px_-1px_rgba(0,0,0,0.25)] transition-all duration-200 shadow-amber-600 py-4'> 
+              <HashLink
+              smooth to="#Live-matches">
+                Live Matches
+              </HashLink>
+            </button>
+            <button 
+            className='bg-slate-200 text-slate-700 rounded-2xl px-10 my-5 border border-slate-300 hover:scale-105 hover:shadow-[0px_0px_16px_-1px_rgba(0,0,0,0.35)] shadow-stone-100 transition-all duration-200 py-4'> 
+              <HashLink 
+              smooth to="#player-stats">
+                Player Stats
+              </HashLink>
+            </button>
           </div>
         </div>
        

@@ -11,7 +11,7 @@ async function safeGet(endpoint) {
   try {
     const response = await api.get(endpoint, {
       headers: {
-        "x-rapidapi-key": VITE_RAPIDAPI_KEY,
+        "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
         "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com",
       },
     });

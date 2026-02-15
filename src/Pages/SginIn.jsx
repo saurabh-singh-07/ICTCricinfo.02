@@ -122,7 +122,10 @@ export default function Register() {
         <p className="text-center dark:text-gray-200 text-gray-700 mt-6 text-sm">
           Already have an account?{" "}
           <span className="dark:text-white text-slate-800 font-semibold cursor-pointer hover:underline">
-            Sign In
+            <Link to="/login">
+              Sign In
+            </Link>
+            
           </span>
         </p>
       </div>
