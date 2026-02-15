@@ -13,4 +13,7 @@ export default defineConfig({
     },
   },
   base: "/ICTCricinfo.02/",
+  build: {
+    chunkSizeWarningLimit: 1000, 
+  },
 })
