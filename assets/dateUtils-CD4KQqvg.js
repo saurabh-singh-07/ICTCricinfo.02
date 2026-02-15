@@ -1,0 +1,1 @@
+function o(t){return t?new Date(Number(t)):null}function u(t,e={},n="en-IN",a="Asia/Kolkata"){if(!t)return"Time not available";const r=o(t);return new Intl.DateTimeFormat(n,{dateStyle:"medium",timeStyle:"short",timeZone:a,...e}).format(r)}export{u as f};
