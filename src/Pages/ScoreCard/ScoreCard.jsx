@@ -33,7 +33,8 @@ function ScoreCard() {
     },[])
     const team1 = data?.team1;
     const team2 = data?.team2;
-
+    console.log("re-render");
+    
   return (
     <div className='px-5 flex flex-col items-center'>
         <div className='dark:bg-gray-600/60 bg-gray-400/60 p-3 my-10 rounded-xl shadow-xl w-full max-w-200 h-50 '>

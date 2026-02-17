@@ -2,22 +2,36 @@ import { NavLink, Outlet, useNavigate } from 'react-router'
 import { getLiveMatches } from '@/Api/cricBuzzApi'
 import { useState, useEffect } from 'react'
 import { formatDate } from '@/utils/dateUtils';
-
+import Loader from '@/components/Loader';
 function MatchSection() {
   const [data , setData] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const navigate = useNavigate();
   useEffect(()=>{
+    setLoading(true)
     getLiveMatches()
-    .then((data) =>{
-     console.log(data);  
-     setData(data?.typeMatches[0]?.seriesMatches[0]?.seriesAdWrapper?.matches)
     
+    .then((data) =>{
+     console.log(data); 
+     
+     setData(data?.typeMatches[0]?.seriesMatches[0]?.seriesAdWrapper?.matches)
+    setError(null)
     })
     .catch((err) =>{
       console.log("Error feching ",err.message);
-      
+  
+      setError(err.message)
+    })
+
+    .finally(()=>{
+      setLoading(false);
     })
   },[])
+  console.log("re-render");
+  if (loading) return <Loader />;
+  if (error) return <ErrorMessage message={error} />;
+
 
   let showMatchData = 'no matches'
   if(Array.isArray(data) && data.length > 0){
@@ -41,9 +55,11 @@ function MatchSection() {
           <div className='flex items-center justify-between ml-4 mr-10 md:mx-10 '>
               <div>
               <div> 
-                <img className='w-10 h-8 md:w-15 md:h-10 rounded-xl'  
-                  src={`https://www.cricbuzz.com/a/img/v1/152x152/i1/c${matchInfo?.team1?.imageId}/player.jpg`} 
-                  alt={matchInfo?.team1?.teamSName} /> 
+                <img 
+                className='w-10 h-8 md:w-15 md:h-10 rounded-xl'  
+                src={`https://www.cricbuzz.com/a/img/v1/152x152/i1/c${matchInfo?.team1?.imageId}/player.jpg`} 
+                alt={matchInfo?.team1?.teamSName} 
+                loading="eager"/> 
               </div>
               <p className='text-md md:text-lg font-medium m-1'>
                 {matchInfo?.team1?.teamName}
@@ -57,7 +73,8 @@ function MatchSection() {
                 <div> 
                   <img className='w-10 md:w-15 h-8 md:h-10 rounded-xl'  
                     src={`https://www.cricbuzz.com/a/img/v1/152x152/i1/c${matchInfo?.team2?.imageId}/player.jpg`} 
-                    alt={matchInfo?.team2?.teamSName} /> 
+                    alt={matchInfo?.team2?.teamSName} 
+                    loading="eager"/> 
                 </div>
                 <p className='text-md md:text-lg font-medium m-1'>{matchInfo?.team2?.teamName}</p>
                 <p className='mx-2 text-xs md:text-sm dark:text-slate-300 text-slate-600'>                 

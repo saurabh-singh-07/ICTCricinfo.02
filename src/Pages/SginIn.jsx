@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { User, Mail, Lock } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -59,6 +60,7 @@ export default function Register() {
               placeholder="Enter your name"
               value={form.name}
               onChange={handleChange}
+              autoComplete="name"
               required
               className="w-full pl-10 pr-4 py-2 rounded-lg bg-white/20 dark:text-white text-slate-700 dark:placeholder-gray-300 placeholder-gray-600/60 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
@@ -74,6 +76,7 @@ export default function Register() {
               placeholder="Enter your email"
               value={form.email}
               onChange={handleChange}
+              autoComplete="email"
               required
               className="w-full pl-10 pr-4 py-2 rounded-lg bg-white/20 dark:text-white text-slate-700 dark:placeholder-gray-300 placeholder-gray-600/60 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
@@ -88,6 +91,7 @@ export default function Register() {
               name="password"
               placeholder="Create password"
               value={form.password}
+              autoComplete="current-password"
               onChange={handleChange}
               required
               className="w-full pl-10 pr-4 py-2 rounded-lg bg-white/20 dark:text-white text-slate-700 dark:placeholder-gray-300 placeholder-gray-600/60 focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -103,6 +107,7 @@ export default function Register() {
               name="confirmPassword"
               placeholder="Confirm password"
               value={form.confirmPassword}
+              autoComplete="new-password"
               onChange={handleChange}
               required
               className="w-full pl-10 pr-4 py-2 rounded-lg bg-white/20 dark:text-white text-slate-700 dark:placeholder-gray-300 placeholder-gray-600/60 focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -121,12 +126,11 @@ export default function Register() {
         {/* Footer */}
         <p className="text-center dark:text-gray-200 text-gray-700 mt-6 text-sm">
           Already have an account?{" "}
-          <span className="dark:text-white text-slate-800 font-semibold cursor-pointer hover:underline">
-            <Link to="/login">
+          <Link to="/login">
+            <span className="dark:text-white text-slate-800 font-semibold cursor-pointer hover:underline">           
               Sign In
-            </Link>
-            
-          </span>
+            </span>
+          </Link> 
         </p>
       </div>
     </div>

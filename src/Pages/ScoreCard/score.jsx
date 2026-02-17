@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-const Score = ({ score, team1, team2 }) => {
+const Score = React.memo(({ score}) => {
   const [toggle, setToggle] = useState(0)
+    console.log("re-render");
   return (
     <div className='card w-full max-w-200 my-5 px-5 pt-5 pb-1 transition-all duration-200'>
     
@@ -98,6 +99,6 @@ const Score = ({ score, team1, team2 }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Score;

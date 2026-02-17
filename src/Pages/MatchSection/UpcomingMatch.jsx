@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { getUpcomingMatches } from '@/Api/cricBuzzApi';
 import { formatDate } from '@/utils/dateUtils';
-import { useNavigate } from "react-router";
 import {  MapPin } from 'lucide-react';
+import Loader from '@/components/Loader';
 
 function UpcomingMatch() {
 const [data, setData] = useState([]);
 const [error, setError] = useState('')
-
+const [loading, setLoading] = useState(true)
 useEffect(()=>{
+  setLoading(true)
   getUpcomingMatches()
   .then(data => {
     setData(data?.typeMatches[0]?.seriesMatches[0]?.seriesAdWrapper?.matches);
-    console.log(data)
-    
+    console.log(data)  
   })
   .catch(err =>{
     console.error('api error hai bhai', err)
     setError('Please Try again Later..')
   })
+  .finally(()=>{
+    setLoading(false);
+  })
 }, [])
-
+  console.log("re-render");
+  if(loading) return <Loader/>
+  if(error) return {error}
 let showMatchData = 'Loading...'
 if(Array.isArray(data) && data.length > 0){
         showMatchData = data.map((match) =>{
@@ -43,7 +48,8 @@ if(Array.isArray(data) && data.length > 0){
                   <div> 
                     <img className='w-10 md:w-15 h-8 md:h-10 rounded'  
                       src={`https://www.cricbuzz.com/a/img/v1/152x152/i1/c${matchInfo?.team1?.imageId}/player.jpg`} 
-                      alt={matchInfo?.team1?.teamSName} /> 
+                      alt={matchInfo?.team1?.teamSName} 
+                       loading="eager"/> 
                   </div>
                   <p className='text-sm md:tast-md font-medium m-1'>
                     {matchInfo?.team1?.teamName}
@@ -55,7 +61,8 @@ if(Array.isArray(data) && data.length > 0){
                     <div> 
                       <img className='md:w-15 w-10 h-8 md:h-10 rounded'  
                         src={`https://www.cricbuzz.com/a/img/v1/152x152/i1/c${matchInfo?.team2?.imageId}/player.jpg`} 
-                        alt={matchInfo?.team2?.teamSName} /> 
+                        alt={matchInfo?.team2?.teamSName} 
+                         loading="eager"/> 
                     </div>
                     <p className='text-sm md:text-md font-medium m-1'>{matchInfo?.team2?.teamName}</p>
                   </div>
