@@ -1,50 +1,25 @@
-import React, { useEffect, useRef } from 'react'
-import Mainimage from '@/assets/Main-img.png'
-import ScorecardImage from '@/assets/Scorecard-img.png'
-import playerProfileImage from '@/assets/playerProfile.png'
+import React from 'react'
+import Mainimage from '@/assets/Main-img.webp'
+import ScorecardImage from '@/assets/Scorecard-img.webp'
+import playerProfileImage from '@/assets/playerProfile.webp'
 import { Link, Outlet } from 'react-router'
 import { Radio, Users } from 'lucide-react'
 import { HashLink } from 'react-router-hash-link'
 import { motion } from "framer-motion";
 import { AIChatWidget } from '@/components/AiChatWidget'
-
+import News from '@/components/News'
+import Reveal from '@/components/Reveal'
 function FrontPage() {
-  const cardRef = useRef([]);
 
-  useEffect(() =>{
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry)=> {
-        if(entry.isIntersecting){
-          entry.target.classList.remove("opacity-0", "translate-y-10");
-          entry.target.classList.add("opacity-100", "translate-y-0")
-        }else{
-          entry.target.classList.remove("opacity-100", "translate-y-0")
-          entry.target.classList.add("opacity-0", "translate-y-10")
-        }
-      });
-    },
-      {threshold : 0.5, rootMargin: "0px 0px -100px 0px"}
-    );
-    cardRef.current.forEach((el)=>{
-      if(el) observer.observe(el);
-    })
-    
-    return () => {
-      cardRef.current.forEach((el) =>{
-        if(el) observer.unobserve(el);
-      })
-    };
-  }, []);
   return (
     <div
     className='flex flex-col items-center justify-center ease-out transform-all duration-700'>
         <div 
-        className={` overflow-hidden relative bg-center w-full max-w-400 h-200 border-x border-slate-400 brightness-40 z-10 shadow-[0px_0px_60px_40px_rgba(0,0,0,0.35)] `}>
+        className={` overflow-hidden relative bg-center w-full max-h-220 h-screen border-x border-slate-400 brightness-40 z-10 shadow-[0px_0px_60px_40px_rgba(0,0,0,0.35)] `}>
           <img
           src={Mainimage}
           alt='Crcket image'
-          className='absolute inset-0 w-full h-full object-cover'
+          className='absolute inset-0 w-full max-h-220 h-screen object-cover'
           />
         </div>
         {/* content */}
@@ -52,22 +27,22 @@ function FrontPage() {
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-         className='absolute z-11 w-full max-w-280 h-200 top-18'>
-          <div className='mt-20'>    
+         className='absolute z-11 w-full max-w-280 h-200 top-[20%] md:top-[30%] lg:top-[40%]'>
+          <div className=''>    
             <h1
             style={{ fontFamily: "Montserrat" }}
-            className='text-center text-slate-50 space-y-5 font-black text-4xl md:text-5xl lg:text-6xl pt-20'>
+            className='text-center text-slate-50 space-y-5 font-black text-3xl md:text-5xl lg:text-6xl pt-20'>
                 Welcome to <span className='bg-linear-to-r from-blue-500 to-green-400 bg-clip-text text-transparent'>ICTCricInfo</span>
             </h1>
             <p 
             style={{fontFamily: "system-ui"}}
-            className='text-md md:text-lg p-5 pt-10 m-5 text-slate-100 font-meium'>
+            className='text-sm md:text-lg px-5 pb-5 text-center m-5 text-slate-100 font-meium'>
                 Your ultimate destination for all things cricket! Stay updated with stats, images, video, player statistics, and in-depth analysis of your favorite teams and players. Whether you're a casual fan or a die-hard cricket enthusiast, ICTCricInfo has something for everyone. Explore historical data, and expert opinions to enhance your cricketing experience. Join our community and never miss a moment of the action!
             </p>
           </div>
-          <div className='text-white flex justify-center space-x-10 font-bold md:text-xl mt-25 lg:mt-40'>
+          <div className='text-white flex justify-center space-x-10 font-bold md:text-xl mt-2'>
             <button 
-            className='btn-style bg-amber-600  px-6 my-5 shadow-amber-600 py-5'> 
+            className='btn-style bg-amber-600 px-5 my-4 shadow-amber-600 py-4'> 
               <HashLink
                
               className='flex items-center'
@@ -90,17 +65,16 @@ function FrontPage() {
             </button>
           </div>
         </motion.div>
-       
-      <div>
+      <div className='flex flex-col lg:flex-row'>
+        <div>
          {/* Cricket matchs section */}
           <section id='Live-matches' className='w-full pt-25 px-5 sm:px-15 flex flex-col justify-center items-center'>
             <div className='bg-slate-800/60 p-4 rounded-xl '>
               <div>
                 <h2 className='text-start my-5 text-4xl dark:text-slate-50 flex items-center font-semibold'> <Radio className='w-10 h-10 mx-2 p-1 rounded-xl bg-amber-600'/>Cricket live Matchs</h2>
               </div>
-              
+              <Reveal>
               <div 
-              ref={(el) => (cardRef.current[0] = el)} 
               className='flex relative shadow-2xl flex-col justify-center pb-20 rounded-xl w-full max-w-180 h-110 sm:h-130 transition-all translate-x-0 duration-500'>
                 <img
                 src={ScorecardImage} 
@@ -128,6 +102,7 @@ function FrontPage() {
                 </div>
                 
               </div>
+              </Reveal>
             </div>
           </section> 
 
@@ -138,9 +113,9 @@ function FrontPage() {
                 <h2 className='text-start my-5 text-4xl dark:text-slate-50 flex items-center font-semibold'> 
                   <Users className='w-10 h-10 mx-2 p-1 rounded-xl bg-amber-600'/>Cricket Players Stats</h2>
               </div>
+              <Reveal>
               <div 
-              ref={(el) => (cardRef.current[1] = el)} 
-              className=' flex relative shadow-2xl flex-col justify-center pb-20 w-full max-w-180 h-110 sm:h-150 transition-all translate-x-0 duration-500'>
+              className={`flex relative shadow-2xl flex-col justify-center pb-20 w-full max-w-180 h-110 sm:h-150 transition-all translate-x-0 duration-500`}>
                 <img
                 src={playerProfileImage}
                 loading="eager" 
@@ -167,12 +142,17 @@ function FrontPage() {
                 </div>
                 
               </div>
+              </Reveal>
             </div>
-            <div>            
-              <AIChatWidget/>
-            </div>
+            
         </section>      
       </div>
+      <News/>
+      </div> 
+      <div>            
+        <AIChatWidget/>
+      </div>
+      
       <Outlet/>
     </div>
   )

@@ -58,3 +58,7 @@ export function getMatchInfo(matchId){
 export function getTeamInfo(matchId){
   return safeGet(`/mcenter/v1/${matchId}/team/9`)
 }
+
+export function getNewsList(){
+  return safeGet('/news/v1/index')
+}

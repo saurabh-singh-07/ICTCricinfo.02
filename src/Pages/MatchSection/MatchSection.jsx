@@ -24,13 +24,14 @@ function MatchSection() {
       setError(err.message)
     })
 
+    
     .finally(()=>{
       setLoading(false);
     })
   },[])
   console.log("re-render");
   if (loading) return <Loader />;
-  if (error) return <ErrorMessage message={error} />;
+  if (error) return  message={error} ;
 
 
   let showMatchData = 'no matches'
@@ -98,7 +99,7 @@ function MatchSection() {
             <span className="absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75 animate-ping"></span>
             <span className="relative inline-flex h-3 w-3 rounded-full bg-red-600"></span>
           </div>
-          <span className='bg-linear-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent'>Live Matches</span>
+          <span className='heading-style'>Live Matches</span>
         </h2>
       </div>
       <div className='mt-10 grid grid-cols-1 mx-2 md:mx-10 lg:grid-cols-2'>

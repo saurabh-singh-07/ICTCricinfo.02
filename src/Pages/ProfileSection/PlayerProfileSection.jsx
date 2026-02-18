@@ -1,12 +1,17 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { Users } from 'lucide-react';
 import {motion } from "framer-motion";
+import Reveal from '@/components/Reveal';
+import Loader from '@/components/Loader';
+
 
 function PlayerProfileSection() {
     const [data, setData] = useState([]);
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(true)
+
     const navigate = useNavigate();
 
     async function getData() {
@@ -15,17 +20,22 @@ function PlayerProfileSection() {
         return response.data;
     }
     useEffect(()=>{
+        setLoading(true)
         getData()
         .then(data => {
         setData(data.players);
         console.log(data.players);    
      })
      .catch(err =>{
+        setLoading(true)
         console.error('api error hai bhai', err)
         setError("Failed to laod data");  
      })
+     .finally(()=>{
+      setLoading(false)
+     })
    }, [])
-
+if (loading) return <Loader />;
 let showMatchData = ''
 if (error) {
   return (
@@ -41,7 +51,8 @@ if (error) {
 if(Array.isArray(data) && data.length > 1 ){
     showMatchData = data.map((player)=>{
         return (
-                <motion.div key={player.id} className='p-10'>
+              <Reveal>
+                <div key={player.id} className='p-10'>
                   <div className='flex flex-col items-center justify-center w-70 h-90 dark:bg-radial dark:from-gray-800/40 dark:via-gray-800/90 dark:to-gray-900/90 bg-slate-300 shadow hover:shadow-xl hover:scale-103 transition-all duration-200 rounded-xl '>
                       <h3 className='dark:text-slate-200 font-bold px-4 mt-5 text-2xl'>{player.name}</h3>
                      <div className='overflow-hidden rounded-xl m-4 '>
@@ -57,15 +68,16 @@ if(Array.isArray(data) && data.length > 1 ){
                       View
                     </button>
                   </div>
-                </motion.div>
+                </div>
+              </Reveal>
         ) 
     })
 }
   return (
         <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className='lg:flex flex-col items-center'>
           <h2 className='text-3xl font-bold my-10 flex items-center justify-center dark:text-slate-100 text-slate-800'>
             <Users className='mx-3 w-10 h-10 p-2 rounded-xl bg-amber-600'/>

@@ -49,11 +49,11 @@ function ScoreCard() {
 
           <div className='flex justify-between my-5 px-5'>
             <div className='w-40 flex text-center font-semibold flex-col'>
-              <span className='text-lg text-slate-800 font-bold '>{team1?.teamname}</span>
+              <span className='text-lg text-slate-800 dark:text-stone-300 font-bold '>{team1?.teamname}</span>
                 {score[0]?.score} / {score[0]?.wickets} ({score[0]?.overs} Ov)
             </div>
             <div className='w-40 flex text-center font-semibold flex-col '>
-              <span className='text-lg text-slate-800 font-bold'>{team2?.teamname}</span>
+              <span className='text-lg text-slate-800 dark:text-stone-300 font-bold'>{team2?.teamname}</span>
               {
                 Array.isArray(score) && score.length > 1 ? <span>{score[1]?.score} / {score[1]?.wickets} ({score[1]?.overs} Ov)</span>
                 : <span className='text-lg font-bold'>Yet to bat</span>

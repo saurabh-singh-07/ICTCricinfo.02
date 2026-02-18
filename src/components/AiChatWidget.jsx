@@ -2,9 +2,14 @@ import { Bot, Send, Maximize2, Sparkles, X, ArrowDownAZIcon, ArrowDown } from "l
 import { useState } from "react";
 
 const quickPrompts = [
-    "What's my food cost this week ? ",
-    "Show labor expense trend",
-    "india series P&L report",
+    "India next series ?",
+    "Afghanistan next series ?",
+    "New Zealand next series ?",
+    "South Africa next series ?",
+    "Sri Lanka next series ?",
+    "Austrila next series ?",
+    "England next series ?",
+    "West Indies next series ?"
 ];
 
 export function AIChatWidget() {
@@ -15,7 +20,7 @@ export function AIChatWidget() {
         {
             id : "1",
             role: "assistant",
-            content: "Hello! I'm your Ai assistent."
+            content: "Hello! I'm your Ai assistent. Ask me any International cricket teams series schedule..."
         },
     ])
 
@@ -38,23 +43,39 @@ export function AIChatWidget() {
                 content: getAIResponse(input),
             };
             setMessages((prev) => [...prev, aiMessage])
-        }, 1000)
+        }, 2000)
 
     };
 
     const getAIResponse = (query ) => {
         const q = query.toLowerCase();
-        if(q.includes("india series")){
-            return "Your food cost this week is Rs- 10549(30% of revenue) . That's higher than you target of 28%. I noticed increased spending on proteins - consider checking supplier prices.";
+        if(q.includes("india" || "ind")){
+            return "India currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for India is bitateral seires : India tour of England in july 2026";
 
         }
-        if(q.includes("labor")){
-            return "Labor expenses are tracking at $12,200 this week (28% of revenue). You're within your 30% target. Peak staffing costs are Friday-Saturday"
+        if(q.includes("england" || "eng")){
+            return "England currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for England is bitateral series : India tour of England in july 2026";        
+          }
+        if(q.includes("austrlia" || "aus") ){
+            return "Austrila currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for austrila is currently unavailble";        
+          }
+        if(q.includes("sri lanka" || "sl") ){
+            return "Sri Lanka currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for Sri Lanka is bitatral series : England tour of Sri Lanka in sept 2026";        
         }
-        if(q.includes("report") || q.includes(p&l)){
-            return "I can help you with financial insghts , expense tracking, and report generation. Try asking about food costs, labor expenses, or request a P&L report!"
+        if(q.includes("new zealand" || "nl") ){
+            return "New Zealand currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for New Zealand is bitateral series : South Africa tour of New Zealand in Mar 2026";        
+          }
+        if(q.includes("south africa" || "sa") ){
+            return "South Africa currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for South Africa is bitateral series : South Africa tour of New Zealand in Mar 2026";        
+          }
+        if(q.includes("west indies" || "wi") ){
+            return "West Indies currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for West Indies is currently unavailble";        
+          }
+        if(q.includes("afghanistan") ){
+          return "Afghanistan currently played in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for Afghanistan is currently unavailble";        
         }
-        return "I can help you with financial insights, expense tracking, and report generation. Try asking about food costs, labor expenses, or request a P&L report!";
+          return "My brain is tried. Try again later";
+        
   };
 
   if (!isOpen) {
@@ -137,7 +158,7 @@ export function AIChatWidget() {
       </div>
 
       {/* Quick Prompts */}
-      {messages.length <= 6 && (
+      {messages.length <= 12 && (
         <div className="flex flex-wrap gap-2 border-t border-gray-400 p-3">
           {quickPrompts.map((prompt) => (
             <button
