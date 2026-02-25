@@ -1,4 +1,4 @@
-import { Bot, Send, Maximize2, Sparkles, X, ArrowDownAZIcon, ArrowDown } from "lucide-react";
+import { Bot, Send, Maximize2, Sparkles, X, ArrowDown } from "lucide-react";
 import { useState } from "react";
 
 const quickPrompts = [
@@ -56,7 +56,7 @@ export function AIChatWidget() {
         if(q.includes("england" || "eng")){
             return "England currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for England is bitateral series : India tour of England in july 2026";        
           }
-        if(q.includes("austrlia" || "aus") ){
+        if(q.includes("austrila" || "aus") ){
             return "Austrila currently playing in the T20 World Cup 2026(hosted by India & Sri Lanka).\n\nThe next scheduled matches for austrila is currently unavailble";        
           }
         if(q.includes("sri lanka" || "sl") ){
@@ -101,7 +101,7 @@ export function AIChatWidget() {
     <div
       className={
         `fixed bottom-6 right-6 z-999 flex flex-col rounded-2xl border border-slate-200 bg-radial dark:from-gray-600 dark:via-gray-700 dark:to-gray-800 my-4 dark:text-white from-slate-50 via-stone-200 to-gray-300 transition-all duration-300
-        ${isExpanded ? "h-165 w-115" : "h-145 w-95"}`
+        ${isExpanded ? "h-175 w-125" : "h-155 w-105"}`
       }
     >
       {/* Header */}

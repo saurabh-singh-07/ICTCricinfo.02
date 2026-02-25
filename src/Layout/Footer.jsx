@@ -1,13 +1,13 @@
 import { Lock } from 'lucide-react'
 import React from 'react'
-import { NavLink } from 'react-router'
+import { NavLink , Link} from 'react-router'
 
 function Footer() {
   return (
     <>
       <div className='w-full h-35 flex flex-col items-center md:flex-row md:justify-around border-b border-slate-500'>
         <div>
-          <h3 className='text-center text-4xl font-bold'><span className='text-amber-600'>ICT</span>CricLinfo.com</h3>
+          <h3 className='text-center text-4xl font-bold'><span className='text-amber-600'>ICT</span>CricInfo.com</h3>
           <p className='text-lg text-slate-300'>Your ultimate destination for Indian Cricket</p>
         </div>
         <ul className='flex my-5 md:my-0 gap-8 text-slate-200 font-medium'>
@@ -15,13 +15,13 @@ function Footer() {
             <NavLink to ="/Matchs-section">Live Matches</NavLink>
           </li>
           <li className='hover:text-amber-600 hover:scale-110 transition-all duration-100  hover:text-shadow-2xs hover:text-shadow-amber-700'>
-            <NavLink to ="/">Home</NavLink>
+            <Link to ="/">Home</Link>
           </li>
           <li className='hover:text-amber-600 hover:scale-110 transition-all duration-100  hover:text-shadow-2xs hover:text-shadow-amber-700'>
-            <NavLink to ="/Matchs-section">About</NavLink>
+            <NavLink to ="#">About</NavLink>
           </li>
           <li className='hover:text-amber-600 hover:text-shadow-2xs hover:scale-110 transition-all duration-100  hover:text-shadow-amber-700'>
-            <NavLink to ="/Live-Matchs">Players Info</NavLink>
+            <NavLink to ="/PlayerSection">Players Info</NavLink>
           </li>
         </ul>
       </div>

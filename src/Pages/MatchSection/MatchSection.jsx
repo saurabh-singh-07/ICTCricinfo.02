@@ -31,8 +31,6 @@ function MatchSection() {
   },[])
   console.log("re-render");
   if (loading) return <Loader />;
-  if (error) return  message={error} ;
-
 
   let showMatchData = 'no matches'
   if(Array.isArray(data) && data.length > 0){
@@ -89,7 +87,8 @@ function MatchSection() {
         </div>
       )}
    )
-  }
+  }else{
+    {error}  }
   return (
     <>
     <div>

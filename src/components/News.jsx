@@ -21,7 +21,7 @@ function News() {
         })
     },[])
     if (loading) return <Loader />;
-    if (error) return  message={error};
+    if (error) return  <p className='text-red-500 mt-30 mx-20'> Currently News are unavailable , due to Cricbuzz server.</p>;
 
     let showData = '';
     if(Array.isArray(data) && data.length > 0){

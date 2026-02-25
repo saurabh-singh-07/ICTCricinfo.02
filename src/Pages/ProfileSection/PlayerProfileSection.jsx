@@ -86,7 +86,7 @@ if(Array.isArray(data) && data.length > 1 ){
           className='mx-10 bg-stone-300/40 dark:bg-slate-600/30 text-slate-800/90 dark:text-stone-300 p-3 rounded-xl shadow-md'>
             <p 
             className='text-center px-5 md:px-10 text-lg font-medium'>
-              Your ultimate destination for all things cricket! Stay updated with stats, plater statistics, and in-depth analysis of your favorite teams and players. Whether you're a casual fan or a die-hard cricket enthusiast, ICTCricInfo has something for everyone. Explore hsitorical data, and experience. Join our community and never miss a moment of the action!
+              Your ultimate destination for all things cricket! Stay updated with stats, player statistics, and in-depth analysis of your favorite teams and players. Whether you're a casual fan or a die-hard cricket enthusiast, ICTCricInfo has something for everyone. Explore hsitorical data, and experience. Join our community and never miss a moment of the action!
             </p>
           </div>
           <div className='flex flex-col items-center sm:grid sm:grid-cols-2 lg:grid-cols-3'>     

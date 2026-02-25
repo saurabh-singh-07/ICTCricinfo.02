@@ -39,7 +39,7 @@ function PlayerProfile() {
           <div 
           className='bg-slate-200 space-y-10 dark:bg-slate-800 w-full min-h-screen rounded shadow '>
             {/* Profile  */}
-            <div className='bg-cover bg-center absolute w-full max-w-290 md:h-65 brightness-75 rounded'
+            <div className='bg-cover object-cover absolute w-full max-w-290 md:h-65 brightness-75 rounded'
             style={{backgroundImage : `url(${data.bgImage})`}}>
             </div>
             <div 
@@ -294,20 +294,7 @@ function PlayerProfile() {
                             <td className="tableBody">{playerStats.bowling.t20s.econ}</td>
                             <td className="tableBody">{playerStats.bowling.ipl.econ}</td>      
                           </tr>
-                          {/* <tr className="hover:bg-gray-100 hover:dark:bg-gray-900/30">
-                            <td className="tableBody ">4W</td>
-                            <td className="tableBody ">{battingData.test.fours}</td>
-                            <td className="tableBody">{battingData.odis.fours}</td>
-                            <td className="tableBody ">{battingData.t20s.fours}</td>
-                            <td className="tableBody ">{battingData.ipl.fours}</td>      
-                          </tr>
-                          <tr className="hover:bg-gray-100 hover:dark:bg-gray-900/30">
-                            <td className="tableBody">5w</td>
-                            <td className="tableBody">{battingData.test.sixs}</td>
-                            <td className="tableBody">{battingData.odis.sixs}</td>
-                            <td className="tableBody">{battingData.t20s.sixs}</td>
-                            <td className="tableBody">{battingData.ipl.sixs}</td>      
-                          </tr> */}
+                          
                     </tbody>
                   </table>
                  : null )

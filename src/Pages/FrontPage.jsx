@@ -37,7 +37,7 @@ function FrontPage() {
             <p 
             style={{fontFamily: "system-ui"}}
             className='text-sm md:text-lg px-5 pb-5 text-center m-5 text-slate-100 font-meium'>
-                Your ultimate destination for all things cricket! Stay updated with stats, images, video, player statistics, and in-depth analysis of your favorite teams and players. Whether you're a casual fan or a die-hard cricket enthusiast, ICTCricInfo has something for everyone. Explore historical data, and expert opinions to enhance your cricketing experience. Join our community and never miss a moment of the action!
+                Your ultimate destination for all things cricket! Stay updated with live , recent matches score, stats, images, player statistics, and in-depth analysis of your favorite teams and players. Whether you're a casual fan or a die-hard cricket enthusiast, ICTCricInfo has something for everyone. Explore historical data, and expert opinions to enhance your cricketing experience. Join our community and never miss a moment of the action!
             </p>
           </div>
           <div className='text-white flex justify-center space-x-10 font-bold md:text-xl mt-2'>
@@ -68,12 +68,12 @@ function FrontPage() {
       <div className='flex flex-col lg:flex-row'>
         <div>
          {/* Cricket matchs section */}
+         <Reveal>
           <section id='Live-matches' className='w-full pt-25 px-5 sm:px-15 flex flex-col justify-center items-center'>
             <div className='bg-slate-800/60 p-4 rounded-xl '>
               <div>
-                <h2 className='text-start my-5 text-4xl dark:text-slate-50 flex items-center font-semibold'> <Radio className='w-10 h-10 mx-2 p-1 rounded-xl bg-amber-600'/>Cricket live Matchs</h2>
-              </div>
-              <Reveal>
+                <h2 className='text-start my-5 text-4xl dark:text-slate-50 flex items-center font-semibold'> <Radio className='w-10 h-10 mx-2 p-1 rounded-xl bg-amber-600'/>Cricket live Matches</h2>
+              </div>              
               <div 
               className='flex relative shadow-2xl flex-col justify-center pb-20 rounded-xl w-full max-w-180 h-110 sm:h-130 transition-all translate-x-0 duration-500'>
                 <img
@@ -101,19 +101,19 @@ function FrontPage() {
                   </Link>
                 </div>
                 
-              </div>
-              </Reveal>
+              </div>              
             </div>
-          </section> 
+          </section>
+          </Reveal> 
 
           {/* cricket section */}
+          <Reveal>
           <section id='player-stats' className='w-full py-30 px-5 sm:px-20 flex justify-center items-center'>
             <div className='bg-slate-800/60  p-5 rounded-xl '>
               <div>
                 <h2 className='text-start my-5 text-4xl dark:text-slate-50 flex items-center font-semibold'> 
                   <Users className='w-10 h-10 mx-2 p-1 rounded-xl bg-amber-600'/>Cricket Players Stats</h2>
               </div>
-              <Reveal>
               <div 
               className={`flex relative shadow-2xl flex-col justify-center pb-20 w-full max-w-180 h-110 sm:h-150 transition-all translate-x-0 duration-500`}>
                 <img
@@ -139,13 +139,11 @@ function FrontPage() {
                     </button>
                   </div>
                   </Link>
-                </div>
-                
-              </div>
-              </Reveal>
-            </div>
-            
-        </section>      
+                </div>              
+              </div>             
+            </div>           
+        </section> 
+        </Reveal>     
       </div>
       <News/>
       </div> 

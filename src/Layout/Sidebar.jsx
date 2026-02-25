@@ -62,7 +62,7 @@ function Sidebar({sideBarShow, setSideBarShow}) {
         sideBarShow && (
           <div className='flex space-x-4 p-4 dark:text-slate-300 text-slate-900/50 border dark:border-slate-500 border-slate-800 font-semibold text-xl '>
             <LogIn className='w-6 h-7'/>
-            <span>Login/signup</span>
+            <Link to="/SginIn"><span>Login/signup</span></Link>
           </div>
         )
       }
