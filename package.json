@@ -2,7 +2,7 @@
   "name": "react-blog",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://saurabh-singh-07.github.io/ICTCricinfo.02",
+  "homepage": "https://saurabh-singh-07.github.io/ICTCricinfo",
   "type": "module",
   "scripts": {
     "dev": "vite",

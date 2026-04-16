@@ -12,7 +12,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/ICTCricinfo.02/",
+  base: "/ICTCricinfo/",
   build: {
     chunkSizeWarningLimit: 1000, 
   },
